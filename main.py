@@ -31,7 +31,7 @@ class ExpenseData(TypedDict):
 
 class Expense:
 
-    VALID_CATEGORIES = ["food", "drink"]
+    VALID_CATEGORIES = ["food", "drink","cloths"]
 
     def __init__(
         self,
@@ -138,23 +138,13 @@ def main() -> None:
     tracker.load_from_json(filename)
 
     try:
-        amount: float = float(
-            input("Insert expense amount: ")
-        )
+        amount: float = float(input("Insert expense amount: "))
 
-        category: str = input(
-            "Insert expense category: "
-        )
+        category: str = input("Insert expense category: ")
 
-        description: str = input(
-            "Insert expense description: "
-        )
+        description: str = input("Insert expense description: ")
 
-        expense = Expense(
-            amount,
-            category,
-            description
-        )
+        expense = Expense(amount,category,description)
 
         tracker.add_expense(expense)
 
