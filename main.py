@@ -67,7 +67,6 @@ class Expense:
 
         return False
 
-
 # ----------------------------
 # ExpenseTracker
 # ----------------------------
@@ -84,6 +83,13 @@ class ExpenseTracker:
     def add_expense(self, expense: Expense) -> None:
         self._expenses.append(expense)
 
+    def delete_expense(self,description: str) -> Expense | None:
+        for expense in self._expenses:
+            if expense.description == description:
+                self.expenses.remove(expense)
+                return expense
+        return None
+    
     def find_expense(self, description: str) -> Expense | None:
         for expense in self._expenses:
             if expense.description == description:
