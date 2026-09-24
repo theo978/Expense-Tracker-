@@ -164,13 +164,13 @@ def main() -> None:
         print(expense)
 
     except NegativeAmountError as error:
-        print(f"Error: {error}")
+        print(f"Catch Error: {error}")
 
     except InvalidCategoryError as error:
-        print(f"Error: {error}")
+        print(f"Catch Error: {error}")
 
     except ValueError:
-        print("Error: amount must be a number.")
+        print("Catch Error: amount must be a number.")
 
 if __name__ == "__main__":
     main()
