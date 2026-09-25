@@ -65,7 +65,7 @@ class Expense:
                 and self.description == other.description
             )
 
-        return False
+        return False    
 
 # ----------------------------
 # ExpenseTracker
@@ -79,6 +79,9 @@ class ExpenseTracker:
     @property
     def expenses(self) -> list[Expense]:
         return self._expenses
+
+    def add_category_filter(self,category):
+        return [ expense for expense in self.expenses if expense.category == category]
 
     def add_expense(self, expense: Expense) -> None:
         self._expenses.append(expense)
