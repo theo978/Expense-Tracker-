@@ -80,8 +80,6 @@ class ExpenseTracker:
     def expenses(self) -> list[Expense]:
         return self._expenses
 
-
-
     def add_expense(self, expense: Expense) -> None:
         self._expenses.append(expense)
 
