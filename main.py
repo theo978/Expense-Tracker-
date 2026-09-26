@@ -1,5 +1,6 @@
 import json
 from typing import TypedDict
+from datetime import date
 
 # ----------------------------
 # Exceptions
@@ -79,6 +80,32 @@ class ExpenseTracker:
     @property
     def expenses(self) -> list[Expense]:
         return self._expenses
+
+    def monthly_summary(self, year: int, month: int) -> dict:
+        monthly_expenses = [
+            expense
+            for expense in self._expenses
+            if expense.date.year == year
+            and expense.date.month == month
+        ]
+
+        total = sum(expense.amount for expense in monthly_expenses)
+
+        by_category = {}
+
+        for expense in monthly_expenses:
+            if expense.category not in by_category:
+                by_category[expense.category] = 0
+
+            by_category[expense.category] += expense.amount
+
+        return {
+            "year": year,
+            "month": month,
+            "total": total,
+            "number_of_expenses": len(monthly_expenses),
+            "by_category": by_category
+        }
 
     def category_filter(self,category):
         return [expense for expense in self._expenses if expense.category == category]
