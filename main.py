@@ -96,7 +96,6 @@ class ExpenseTracker:
         for expense in monthly_expenses:
             if expense.category not in by_category:
                 by_category[expense.category] = 0
-
             by_category[expense.category] += expense.amount
 
         return {
