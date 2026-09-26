@@ -171,11 +171,11 @@ def main() -> None:
     tracker.load_from_json(filename)
 
     try:
-        amount: float = float(input("Insert expense amount: "))
+        amount: float = float(input("Inject expense amount: "))
 
-        category: str = input("Insert expense category: ")
+        category: str = input("Inject expense category: ")
 
-        description: str = input("Insert expense description: ")
+        description: str = input("Inject expense description: ")
 
         expense = Expense(amount,category,description)
 
@@ -198,5 +198,3 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-
-    
