@@ -15,7 +15,6 @@ class InvalidCategoryError(ExpenseError):
 class NegativeAmountError(ExpenseError):
     pass
 
-
 # ----------------------------
 # JSON data type
 # ----------------------------
@@ -24,7 +23,6 @@ class ExpenseData(TypedDict):
     amount: float
     category: str
     description: str
-
 
 # ----------------------------
 # Expense
@@ -106,7 +104,7 @@ class ExpenseTracker:
             "by_category": by_category
         }
 
-    def category_filter(self,category):
+    def category_filter(self,category : str ) -> list:
         return [expense for expense in self._expenses if expense.category == category]
 
     def add_expense(self, expense: Expense) -> None:
@@ -199,5 +197,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
     
