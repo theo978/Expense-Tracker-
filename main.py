@@ -74,6 +74,7 @@ class ExpenseTracker:
 
     def __init__(self) -> None:
         self._expenses: list[Expense] = []
+        self._lay_by: list[Expense] = []
 
     @property
     def expenses(self) -> list[Expense]:
@@ -104,11 +105,17 @@ class ExpenseTracker:
             "by_category": by_category
         }
 
+    def add_to_lay_by(self, expense : Expense) -> None:
+        if isinstance(expense,Expense):
+            self._lay_by.append(expense)
+        
+
     def category_filter(self,category : str ) -> list:
         return [expense for expense in self._expenses if expense.category == category]
 
     def add_expense(self, expense: Expense) -> None:
-        self._expenses.append(expense)
+        if isinstance(expense,Expense):
+            self._expenses.append(expense)
 
     def delete_expense(self,description: str) -> Expense | None:
         for expense in self._expenses:
@@ -156,7 +163,6 @@ class ExpenseTracker:
 
             self._expenses.append(expense)
 
-
 # ----------------------------
 # CLI
 # ----------------------------
@@ -197,4 +203,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+
 
