@@ -105,11 +105,6 @@ class ExpenseTracker:
             "by_category": by_category
         }
 
-    def add_to_lay_by(self, expense : Expense) -> None:
-        if isinstance(expense,Expense):
-            self._lay_by.append(expense)
-        
-
     def category_filter(self,category : str ) -> list:
         return [expense for expense in self._expenses if expense.category == category]
 
