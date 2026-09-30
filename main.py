@@ -25,7 +25,6 @@ class ExpenseData(TypedDict):
     category: str
     description: str
 
-
 # ----------------------------
 # Expense
 # ----------------------------
@@ -65,8 +64,12 @@ class Expense:
                 and self.category == other.category
                 and self.description == other.description
             )
-
-        return False    
+        
+        return False  
+    
+    @classmethod
+    def add_vaild_category(self,input: str) -> None:
+        self.VALID_CATEGORIES.append(input)
 
 # ----------------------------
 # ExpenseTracker
@@ -157,7 +160,6 @@ class ExpenseTracker:
             )
 
             self._expenses.append(expense)
-
 
 # ----------------------------
 # CLI
